@@ -14,7 +14,7 @@ var forecastApiStarts =
 
     var apiUrl =
     dailyApiStarts + searchCityName + "&" + APIKey + "&" + unit;
-  // make a request to url
+
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
       return response.json().then(function (response) {
@@ -67,21 +67,45 @@ var getForecast = function (lat, lon) {
         var unixTime = response.daily[i].dt;
         var date = moment.unix(unixTime).format("MM/DD/YY");
         $("#Date" + i).html(date);
-        // display weather icon
+        // weather icon
         var weatherIncoUrl =
           "http://openweathermap.org/img/wn/" +
           response.daily[i].weather[0].icon +
           "@2x.png";
         $("#weatherIconDay" + i).attr("src", weatherIncoUrl);
-        // display temperature
+       //temp
         var temp = response.daily[i].temp.day + " \u00B0F";
         $("#tempDay" + i).html(temp);
-        // display humidity
+       //humidity 
         var humidity = response.daily[i].humidity;
         $("#humidityDay" + i).html(humidity + " %");
       }
     });
 };
+var saveCityName = function (searchCityName) {
+  var newcity = 0;
+  citiesListArr = JSON.parse(localStorage.getItem("weatherInfo"));
+  if (citiesListArr == null) {
+    citiesListArr = [];
+    citiesListArr.unshift(searchCityName);
+  } else {
+    for (var i = 0; i < citiesListArr.length; i++) {
+      if (searchCityName.toLowerCase() == citiesListArr[i].toLowerCase()) {
+        return newcity;
+      }
+    }
+    if (citiesListArr.length < numOfCities) {
+      // create object
+      citiesListArr.unshift(searchCityName);
+    } else {
+      // control the length of the array. do not allow to save more than 10 cities
+      citiesListArr.pop();
+      citiesListArr.unshift(searchCityName);
+    }
+  }
+  localStorage.setItem("weatherInfo", JSON.stringify(citiesListArr));
+  newcity = 1;
+  return newcity;
 
 
 // creating city button for search
@@ -100,7 +124,7 @@ var getForecast = function (lat, lon) {
         
 
 
-
+        loadSavedCity();
 
     var formSubmitHandler = function (event) {
       event.preventDefault();

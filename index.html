@@ -5,50 +5,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+  <link 
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  />
+  <link 
+  rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  
+  />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Git it Done</title>
+  <title>Weather Dashboard</title>
 </head>
 
-<body class="flex-column min-100-vh">
+<body>
+
+ class="flex-column min-100-vh">
   <header class="hero">
-    <h1 class="app-title"><i class="fab fa-github"></i> Git it Done!</h1>
-    <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
-    </p>
-  </header>
+    <h1 class="bg-dark text-white text-center mb-0">Weather Dashboard</h1>
+ </header>
 
 
-  <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By User</h3>
-        <form id="user-form" class="card-body">
-          <label class="form-label" for="username">Username</label>
-          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Get User</button>
-        </form>
+  <main>
+     
+    <div class="row min-vh-100 no-gutters">
+        <section class="col-12 col-lg-3 bg-light py-4 mblank-0 d-flex flex-column" id="serach-from">
+            <form class="form-group" id="searchCityForm">
+              <label for="searchCity" class="col col-12">Search for a City</label>
+              <div class="form-check-inline col col-12 px-3">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="searchCity"
+                  autofocus="true"
+                  aria-describedby="searchCity"
+                />
+
+                <button type="submit" class="btn btn-primary" id="searchCityForm">
+                    <span class="fas fa-search"></span>
+                  </button>
+                </div>
+              </form>
+              <li class="list-group col col-12 d-none d-lg-block px-3" id="searchedCityLi"></li>
+            </section>
+            <section class="col-12 col-lg-9 mt-3 d-flex flex-column px-3" id="display-weather-info">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title d-flex align-items-center lead font-weight-bold" style="height: 100px">
+                    <span id="cityName">Name of City</span>
+                    <span class="px-3" id="currentdate"> MM/DD/YY</span>
+                    <img class="weather-icon" id="weatherIconToday" src="">
+                    </img>
+                  </h2>
+
+    <p class="card-text">
+                Temperature:
+                <span id="tempToday">--</span>
+              </p>
+              <p class="card-text">
+                Humidity:
+                <span id="humidityToday">--</span>
+              </p>
+              <p class="card-text">
+                Wind Speed:
+                <span id="windSpeedToday">--</span>
+              </p>
+              <p class="card-text">
+                UV Index:
+                <span id="UVIndexToday">--</span>
+              </p>
+            </div>
+          </div>
+      
+          <div class="px-3">
+            <h2 class="card-title d-flex align-items-center lead font-weight-bold mt-3" style="height: 50px">
+              5-Day Forecast:
+            </h2>
+            <div class="row justify-content-between">
+              <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+                <p class="card-title font-weight-bold" id="Date1">MM/DD/YY</p>
+                <p class="card-text" style="height: 100px">
+                  <img class="weather-icon" id="weatherIconDay1" src="">
+                </img>
+                </p>
+                <p class="card-text">Temp:
+                  <spanid id="tempDay1">--</span>
+                </p>
+                <p class="card-text">Humidity:
+                  <span id="humidityDay1">--</span>
+                </p>
+              </div>
+              <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+                <p class="card-title font-weight-bold" id="Date2">MM/DD/YY</p>
+                <p class="card-text" style="height: 100px">
+                  <img class="weather-icon" id="weatherIconDay2" src="">
+                </img>
+                </p>
+                <p class="card-text">Temp:
+                  <spanid id="tempDay2">--</span>
+                </p>
+                <p class="card-text">Humidity:
+                  <span id="humidityDay2">--</span>
+                </p>
+              </div>
+              <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+                <p class="card-title font-weight-bold" id="Date3">MM/DD/YY</p>
+                <p class="card-text" style="height: 100px">
+                  <img class="weather-icon" id="weatherIconDay3" src="">
+                </img>
+                </p>
+                <p class="card-text">Temp:
+                  <spanid id="tempDay3">--</span>
+                </p>
+                <p class="card-text">Humidity:
+                  <span id="humidityDay3">--</span>
+                </p>
+              </div>
+              <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+                <p class="card-title font-weight-bold" id="Date4">MM/DD/YY</p>
+                <p class="card-text" style="height: 100px">
+                  <img class="weather-icon" id="weatherIconDay4"  src="">
+                </img>
+                </p>
+                <p class="card-text">Temp:
+                  <spanid id="tempDay4">--</span>
+                </p>
+                <p class="card-text">Humidity:
+                  <span id="humidityDay4">--</span>
+                </p>
+              </div>
+              <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+                <p class="card-title font-weight-bold" id="Date5">MM/DD/YY</p>
+                <p class="card-text" style="height: 100px">
+                  <img class="weather-icon" id="weatherIconDay5" src="">
+                </img>
+                </p>
+                <p class="card-text">Temp:
+                  <spanid id="tempDay5">--</span>
+                </p>
+                <p class="card-text">Humidity:
+                  <span id="humidityDay5">--</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+    </main>
 
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By Topic</h3>
-        <div id="language-buttons" class="card-body">
-          <button data-language="javascript" class="btn">JavaScript</button>
-          <button data-language="html" class="btn">HTML</button>
-          <button data-language="css" class="btn">CSS</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-8">
-      <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
-      <div id="repos-container" class="list-group">
-
-      </div>
-    </div>
-  </main>
-
-  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>

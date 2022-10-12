@@ -1,5 +1,5 @@
 var citiesListArr = [];
-var numOfCities = 9;
+var numOfCities = 5;
 
 
 var searchbutton = $("#search-button");
@@ -8,18 +8,6 @@ var searchinput = "";
 var date = moment().format("MM/DD/YY");
 var currentDate = moment().format("M/D/YYYY");
 var cityName = "";
-
-
-//var APIKey =  "appid=253f4c918a7866d5e2e78d48e99bb84d";
-//var WeatherApi =
- // "https://api.openweathermap.org/data/2.5/weather?q=";
- // var unit = "units=imperial";
-//var dailyApiStarts = "https://api.openweathermap.org/data/2.5/uvi?";
-//var forecastApiStarts =
-  //"https://api.openweathermap.org/data/2.5/onecall?";
-
-  //var searchCityForm = $("#searchCityForm");
-  //var searchedCities = $("#searchedCity");
 
   searchbutton.click(function(){ 
     console.log("buttonclicked")

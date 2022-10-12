@@ -14,7 +14,7 @@
   rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
   
   />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+ <!--link rel="stylesheet" href="./assets/style.css" /-->
   <title>Weather Dashboard</title>
 </head>
 
@@ -30,22 +30,22 @@
      
     <div class="row min-vh-100 no-gutters">
         <section class="col-12 col-lg-3 bg-light py-4 mblank-0 d-flex flex-column" id="serach-from">
-            <form class="form-group" id="searchCityForm">
+            <div class="form-group" id="searchCityForm">
               <label for="searchCity" class="col col-12">Search for a City</label>
               <div class="form-check-inline col col-12 px-3">
                 <input
-                  type="text"
+                  type="search"
                   class="form-input"
                   id="searchCity"
                   autofocus="true"
                   aria-describedby="searchCity"
                 />
 
-                <button type="submit" class="btn btn-primary" id="searchCityForm">
+                <button type="submit" class="btn btn-primary" id="search-button">
                     <span class="fas fa-search"></span>
                   </button>
                 </div>
-              </form>
+            </div>
               <li class="list-group col col-12 d-none d-lg-block px-3" id="searchedCityLi"></li>
             </section>
             <section class="col-12 col-lg-9 mt-3 d-flex flex-column px-3" id="display-weather-info">
@@ -53,7 +53,7 @@
                 <div class="card-body">
                   <h2 class="card-title d-flex align-items-center lead font-weight-bold" style="height: 100px">
                     <span id="cityName">Name of City</span>
-                    <span class="px-3" id="currentdate"> MM/DD/YY</span>
+                    <span class="px-3" id="todaydate"> MM/DD/YY</span>
                     <img class="weather-icon" id="weatherIconToday" src="">
                     </img>
                   </h2>
@@ -152,6 +152,10 @@
         </section>
       </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <!--moment related script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
   <script src="./assets/script.js"></script>
 </body>
